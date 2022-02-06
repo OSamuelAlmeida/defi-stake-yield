@@ -10,21 +10,26 @@ def defi_token():
     yield defi_token
 
 
-def test_defi_token_name(defi_token):
+@pytest.mark.unit
+def test_name(defi_token):
     assert defi_token.name() == "DefiToken"
 
 
-def test_defi_token_symbol(defi_token):
+@pytest.mark.unit
+def test_symbol(defi_token):
     assert defi_token.symbol() == "DEFI"
 
 
-def test_defi_token_decimals(defi_token):
+@pytest.mark.unit
+def test_decimals(defi_token):
     assert defi_token.decimals() == 18
 
 
-def test_defi_token_total_supply(defi_token):
+@pytest.mark.unit
+def test_total_supply(defi_token):
     assert defi_token.totalSupply() == Web3.toWei(1_000_000, "ether")
 
 
-def test_defi_token_deployer_balance(defi_token):
+@pytest.mark.unit
+def test_deployer_balance(defi_token):
     assert defi_token.balanceOf(accounts[0]) == Web3.toWei(1_000_000, "ether")
